@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>BBD Player 2</title>
+    <meta charset="UTF-8"> 
+    <!-- jQuery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <!-- Tone.js -->
+    <script src="js/Tone.js"></script>
+    <script src="js/StartAudioContext.js"></script>
+    <!-- Midi Converter -->
+    <script type="text/javascript" src="https://unpkg.com/@tonejs/midi"></script>
+    <!-- Custom Player JS -->
+    <script src="js/player.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/5dc4a3cb6b.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Unica+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <span class="page-title">BBD2</span>
+        <span id="initialize-button">click</span>
+    </header>
+    <main>
+        
+    </main>
+    <footer>
+        <i class="fas fa-play-circle fa-2x"></i>
+        <a href="#converter-modal" rel="modal:open"><i class="fas fa-carrot fa-2x"></i></a>
+    </footer>
+    <!-- Modals -->
+    <div id="converter-modal" class="modal">
+        <div class="modal-heading">Converter</div>
+        <div id="midi-dropzone">
+            <div id="midi-dropzone-text">Drop a midi file here.</div>
+        </div>
+        
+        <script type="text/javascript">
+            
+            // if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
+                //     document.querySelector("#FileDrop #Text").textContent = "Reading files not supported by this browser";
+                // } else {
+                    
+                    //     const fileDrop = document.querySelector("#FileDrop")
+                    
+                    //     fileDrop.addEventListener("dragenter", () => fileDrop.classList.add("Hover"))
+                    
+                    //     fileDrop.addEventListener("dragleave", () => fileDrop.classList.remove("Hover"))
+                    
+                    //     fileDrop.addEventListener("drop", () => fileDrop.classList.remove("Hover"))
+                    
+                    //     document.querySelector("#FileDrop input").addEventListener("change", e => {
+                        //         //get the files
+                        //         const files = e.target.files
+                        //         if (files.length > 0){
+                            //             const file = files[0]
+                            //             document.querySelector("#FileDrop #Text").textContent = file.name
+                            //             parseFile(file)
+                            //         }
+                            //     })
+                            // }
+                            
+                            // let currentMidi = null
+                            
+                            // function parseFile(file){
+                                //     //read the file
+                                //     const reader = new FileReader()
+                                //     reader.onload = function(e){
+                                    //         const midi = new Midi(e.target.result)
+                                    //         document.querySelector("#ResultsText").value = JSON.stringify(midi, undefined, 2)
+                                    //         document.querySelector('tone-play-toggle').removeAttribute('disabled')
+                                    //         currentMidi = midi
+                                    //     }
+                                    //     reader.readAsArrayBuffer(file)
+                                    // }
+                                    
+                                </script>
+                            </div>
+                        </body>
+                        </html>
