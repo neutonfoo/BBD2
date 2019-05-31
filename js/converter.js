@@ -1,15 +1,16 @@
 $(document).ready(function() {
     //==============================================================================
-    // Global Variables
+    // DOM Selectors
     //==============================================================================
-    var $midiDropZone = $('#midi-dropzone');
-    // var $adjustedJson = $('#adjustedJson');
+    const $midiDropZone = $('#midi-dropzone');
+    const $midiConvertedJson = $('#midi-converted-json');
+    const $converterLoadSong = $('#converter-load-song');
     
     $midiDropZone.on('dragover', function(e) {
         e.preventDefault();
         e.stopPropagation();
         
-        // $(this).addClass('midiDropZoneDragging');
+        $(this).addClass('midi-dropzone-dragging');
         
         return false;
     })
@@ -17,7 +18,7 @@ $(document).ready(function() {
         e.preventDefault();
         e.stopPropagation();
         
-        // $(this).removeClass('midiDropZoneDragging');
+        $(this).removeClass('midi-dropzone-dragging');
         
         return false;
     })
@@ -30,55 +31,55 @@ $(document).ready(function() {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                var uploadedFile = e.originalEvent.dataTransfer.files[0];
+                const uploadedFile = e.originalEvent.dataTransfer.files[0];
                 if(uploadedFile.type == 'audio/midi') {
-                    console.log('asdas')
-                    // convertMidi(uploadedFile);
+                    convertMidi(uploadedFile);
+                } else {
+                    $midiConvertedJson.val('Not a valid .midi file.')
                 }
             }
         }
-        // $(this).removeClass('midiDropZoneDragging');
-        
+        $(this).removeClass('midi-dropzone-dragging');
         return false;
     });
+    
+    function convertMidi(file){
+        //read the file
+        const reader = new FileReader()
+        reader.onload = function(e){
+            const midiJson = new Midi(e.target.result)
+            parseMidiJson(midiJson)
+        }
+        reader.readAsArrayBuffer(file)
+    }
+
+    function parseMidiJson(midiJson) {
+        const bbd_song = {}
+        // console.log(midiJson)
+
+        // Add headers (meta)
+        bbd_song.header = {
+            'title': 'Test Song',
+            'artist': 'asdfasdf',
+            'source': 'https://asdasdasdaasd'
+        }
+
+        // Add tracks
+        bbd_song.tracks = []
+        $.each(midiJson.tracks, function(track_index, track) {
+
+            const track_data = {
+                'instrument_number': track.instrument.number,
+                'notes': track.notes
+            }
+
+            bbd_song.tracks.push(track_data)
+        })
+
+        $midiConvertedJson.val(JSON.stringify(bbd_song))
+    }
+
+    $converterLoadSong.on('click', function() {
+        const bbd_song = JSON.parse($midiConvertedJson.val())
+    })
 });
-
-
-// $(document).ready(function() {
-//     if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
-//         document.querySelector("#midi-dropzone #midi-dropzone-text").textContent = "Reading files not supported by this browser";
-//     } else {
-
-//         const fileDrop = document.querySelector("#midi-dropzone")
-
-//         fileDrop.addEventListener("dragenter", () => fileDrop.classList.add("Hover"))
-
-//         fileDrop.addEventListener("dragleave", () => fileDrop.classList.remove("Hover"))
-
-//         fileDrop.addEventListener("drop", () => fileDrop.classList.remove("Hover"))
-
-//         document.querySelector("#FileDrop input").addEventListener("change", e => {
-//             //get the files
-//             const files = e.target.files
-//             if (files.length > 0){
-//                 const file = files[0]
-//                 document.querySelector("#FileDrop #Text").textContent = file.name
-//                 parseFile(file)
-//             }
-//         })
-//     }
-
-//     let currentMidi = null
-
-//     function parseFile(file){
-//         //read the file
-//         const reader = new FileReader()
-//         reader.onload = function(e){
-//             const midi = new Midi(e.target.result)
-//             document.querySelector("#ResultsText").value = JSON.stringify(midi, undefined, 2)
-//             document.querySelector('tone-play-toggle').removeAttribute('disabled')
-//             currentMidi = midi
-//         }
-//         reader.readAsArrayBuffer(file)
-//     }
-// })
