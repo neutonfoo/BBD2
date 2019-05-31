@@ -16,41 +16,35 @@
     <!-- Midi Converter -->
     <script type="text/javascript" src="https://unpkg.com/@tonejs/midi"></script>
     <script type="text/javascript" src="js/converter.js"></script>
-    <!-- Custom Player JS -->
-    <script src="js/player.js"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/5dc4a3cb6b.js"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Unica+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <!-- Custom Player JS -->
+    <script src="js/player.js"></script>
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <span class="page-title">BBD2</span>        
-        <span id="initialize-button">click</span>
+        <button id="initialize-button">click</button>
     </header>
     <main>
-        
+        <div id="player"></div>
     </main>
     <footer>
         <i class="fas fa-play fa-2x"></i>
         <a href="#converter-modal" rel="modal:open"><i class="fas fa-dna fa-2x"></i></a>
-
-        <span style="display:inline-block;width:300px;vertical-align:bottom;float:right">
-                <select>
-                    <optgroup label="Swedish Cars">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                    </optgroup>
-                    <optgroup label="German Cars">
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
-                    </optgroup>
-                </select>
-            </span>
-    
+        <input type="range" style="vertical-align:sub;" min="0" max="100" value="0" step="1">
+        <span id="visualizer-selector-container">
+            <select>
+                <option value="default">Default</option>
+                <option value="original">Original</option>
+            </select>
+        </span>
+        
     </footer>
     
     <!-- Modals -->

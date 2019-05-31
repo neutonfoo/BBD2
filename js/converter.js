@@ -4,7 +4,6 @@ $(document).ready(function() {
     //==============================================================================
     const $midiDropZone = $('#midi-dropzone');
     const $midiConvertedJson = $('#midi-converted-json');
-    const $converterLoadSong = $('#converter-load-song');
     
     $midiDropZone.on('dragover', function(e) {
         e.preventDefault();
@@ -33,7 +32,7 @@ $(document).ready(function() {
                 
                 const uploadedFile = e.originalEvent.dataTransfer.files[0];
                 if(uploadedFile.type == 'audio/midi') {
-                    convertMidi(uploadedFile);
+                    convert_midi(uploadedFile);
                 } else {
                     $midiConvertedJson.val('Not a valid .midi file.')
                 }
@@ -43,20 +42,18 @@ $(document).ready(function() {
         return false;
     });
     
-    function convertMidi(file){
+    function convert_midi(file){
         //read the file
         const reader = new FileReader()
         reader.onload = function(e){
             const midiJson = new Midi(e.target.result)
-            parseMidiJson(midiJson)
+            parse_midi_json(midiJson)
         }
         reader.readAsArrayBuffer(file)
     }
 
-    function parseMidiJson(midiJson) {
+    function parse_midi_json(midiJson) {
         const bbd_song = {}
-        // console.log(midiJson)
-
         // Add headers (meta)
         bbd_song.header = {
             'title': 'Test Song',
@@ -79,7 +76,5 @@ $(document).ready(function() {
         $midiConvertedJson.val(JSON.stringify(bbd_song))
     }
 
-    $converterLoadSong.on('click', function() {
-        const bbd_song = JSON.parse($midiConvertedJson.val())
-    })
+    // Load Song Button in player.js
 });
