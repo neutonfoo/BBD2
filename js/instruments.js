@@ -1,9 +1,92 @@
+// MIDI Instrument Mapping
+// http://fmslogo.sourceforge.net/manual/midi-instrument.html
+
 // Samples Directory
 const samples_dir = 'samples'
+
+// Instruments List
+const instruments_list = {
+        '0': {
+                'name': 'Piano',
+                'slug': 'piano',
+                'samples': [
+                        'A0', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'C0', 'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'E0', 'E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'G0', 'G1', 'G2', 'G3', 'G4', 'G5', 'G6'
+                ]
+        },
+        '34': {
+                'name': 'Electric Bass',
+                'slug': 'bass-electric',
+                'samples': [
+                        'A#2', 'A#3', 'A#4', 'A#5', 'C#2', 'C#3', 'C#4', 'C#5', 'E2', 'E3', 'E4', 'E5', 'G2', 'G3', 'G4', 'G5'
+                ]
+        }
+        // 'Piano': 'piano',
+        // 'Electric Bass': 'bass'
+}
 
 // Instruments Object
 const instruments = new Object()
 
+// Loop through and add instruments
+$.each(instruments_list, function (instrument_key, instrument) {
+        let sample_file_mapping = new Object()
+        $.each(instrument.samples, function (note_sample_index, note_sample_name) {
+                sample_file_mapping[note_sample_name] = clean_note(note_sample_name) + '.[mp3|ogg]'
+        })
+
+        instruments[instrument_key] = new Tone.Sampler(sample_file_mapping, {
+                baseUrl: samples_dir + '/' + instrument.slug + '/'
+        })
+})
+
+// Store instrument keys in array
+const instrument_keys = Object.keys(instruments)
+
+// Gets instrument if exists, else return piano
+function get_instrument(instrument_key) {
+        if (instrument_key in instruments) {
+                return instruments[instrument_key]
+        } else {
+                // Defaults to Piano
+                return instruments[0]
+        }
+}
+
+// Returns random instrument
+function random_instrument() {
+        return instruments[instrument_keys[instrument_keys.length * Math.random() << 0]];
+};
+
+// Returns HTML for the instrument selector select box
+function build_instrument_select(track_index, track_instrument_key) {
+        let select_html = `
+        <span class="instrument-selector-container">
+            <select class="instrument-select" data-track="${ track_index }">`
+
+        $.each(instruments_list, function (instrument_key, instrument) {
+                if (instrument_key == track_instrument_key) {
+                        select_html += `<option value="${ instrument_key }" selected>T${ track_index } - ${ instrument.name }</option>`
+
+                } else {
+                        select_html += `<option value="${ instrument_key }">T${ track_index } - ${ instrument.name }</option>`
+                }
+        })
+
+        select_html += `
+            </select>
+        </span>`
+
+        return select_html
+}
+
+
+
+
+
+
+
+
+/*
 // Piano
 instruments.piano = new Tone.Sampler({
         'A0': 'A0.[mp3|ogg]',
@@ -98,3 +181,4 @@ instruments.piano = new Tone.Sampler({
         baseUrl: samples_dir + '/piano/'
         // curve: exponential
 })
+*/

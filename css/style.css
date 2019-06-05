@@ -3,21 +3,62 @@
     padding: 0;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 header {
     position: fixed;
     top:0;
     left:0;
     right:0;
+
+    background-color: #FFF;
+    border-bottom: 2px solid #000;
 }
 
-header .page-title {
+header #page-title {
     font-family: 'Unica One', cursive;
-    
     
     font-size: 30pt;
     
     background-color: #000;
     color: #FFF;
+}
+
+header #song-info {
+    /* vertical-align: middle; */
+}
+
+header #song-info #song-artist {
+    margin-right: 10px;
+
+    font-family: 'Abril Fatface', cursive;
+
+    font-size: 20pt;
+}
+
+header #song-info #song-title {
+    margin-right: 10px;
+
+    font-family: 'Unica One', cursive;
+
+    font-size: 16pt;
+}
+
+header #song-info #song-source {
+    font-size: 10pt;
+    font-style: italic;
+}
+
+header #song-info #song-source a {
+    text-decoration: none;
+    color: #000;
+}
+
+header #song-info #song-source a:hover {
+    text-decoration: underline;
+    color: #555;
 }
 
 main {
@@ -63,6 +104,17 @@ main {
 
 textarea#midi-converted-json {
     width: 100%;
+}
+
+/* Instruments Selector */
+#instruments-selector-container {
+    position: fixed;
+}
+
+.instrument-selector-container {
+    width:200px;
+    /* vertical-align:bottom; */
+    float:left;
 }
 
 /* Visualizer Selector */

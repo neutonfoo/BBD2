@@ -53,12 +53,15 @@ $(document).ready(function () {
     }
 
     function parse_midi_json(midiJson) {
+        console.log(midiJson)
+
         let bbd_song = {}
         // Add headers (meta)
         bbd_song.header = {
             'title': 'Test Song',
             'artist': 'asdfasdf',
-            'source': 'https://asdasdasdaasd'
+            'source': 'https://asdasdasdaasd',
+            'bpm': midiJson.header.tempos[0].bpm
         }
 
         // Add tracks
