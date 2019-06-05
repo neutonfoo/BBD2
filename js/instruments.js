@@ -35,7 +35,8 @@ $.each(instruments_list, function (instrument_key, instrument) {
         })
 
         instruments[instrument_key] = new Tone.Sampler(sample_file_mapping, {
-                baseUrl: samples_dir + '/' + instrument.slug + '/'
+                baseUrl: samples_dir + '/' + instrument.slug + '/',
+                release: 0.5
         })
 })
 

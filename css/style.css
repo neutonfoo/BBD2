@@ -109,6 +109,8 @@ textarea#midi-converted-json {
 /* Instruments Selector */
 #instruments-selector-container {
     position: fixed;
+
+    z-index: 1;
 }
 
 .instrument-selector-container {

@@ -11,7 +11,7 @@ foreach ($tracks as $track_index => $track) {
 }
 ?>
 <script type="text/javascript">
-    var hands_up_delay = 100; // In milliseconds
+    var hands_up_delay = 50; // In milliseconds
     var hands_up_timeouts = new Array(<?php echo $track_index + 1; ?>)
 
     // 1. BCs initialize with their hands up.

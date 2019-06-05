@@ -54,8 +54,23 @@ $(document).ready(function () {
 
     // initialize() is called after Tone.Buffer Onload
     function initialize() {
-        load_song()
+        load_song('sekai-no-owari--sazanka')
     }
+
+    //==============================================================================
+    // Debugging / Testing Functions
+    //==============================================================================
+    $('#song1').on('click', function() {
+        load_song('sekai-no-owari--sazanka')
+    })
+
+    $('#song2').on('click', function() {
+        load_song('twice--likey')
+    })
+
+    $('#song3').on('click', function() {
+        load_song('shinee--replay')
+    })
 
     //==============================================================================
     // load_song()

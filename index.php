@@ -53,6 +53,9 @@
             <a href="#" id="instrument-button"><i class="fas fa-guitar fa-2x"></i></a>
             <a href="#converter-modal" rel="modal:open"><i class="fas fa-dna fa-2x"></i></a>
             <input type="range" style="vertical-align:sub;" min="0" max="100" value="0" step="1">
+            <input id="song1" type="button" value="Song 1">
+            <input id="song2" type="button" value="Song 2">
+            <input id="song3" type="button" value="Song 3">
             <span id="visualizer-selector-container">
                 <select>
                     <option value="original">Original</option>
