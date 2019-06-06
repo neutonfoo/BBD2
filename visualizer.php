@@ -24,10 +24,10 @@ function scaled_notes($factor)
     return $scaled_notes;
 }
 
-if ($visualizer == 'default') {
-    require('visualizers/default.php');
-} else if ($visualizer == 'original') {
+if ($visualizer == 'original') {
     require('visualizers/original.php');
+} else if ($visualizer == 'tracks') {
+    require('visualizers/tracks.php');
 } else if ($visualizer == 'lights') {
     require('visualizers/lights.php');
 } else if ($visualizer == 'bongo-cat') {

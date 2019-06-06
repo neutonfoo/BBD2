@@ -65,14 +65,18 @@ $(document).ready(function () {
     })
 
     $('#song1').on('click', function() {
-        load_song('sekai-no-owari--sazanka')
+        load_song('coldplay--the-scientist')
     })
 
     $('#song2').on('click', function() {
-        load_song('twice--likey')
+        load_song('sekai-no-owari--sazanka')
     })
 
     $('#song3').on('click', function() {
+        load_song('twice--likey')
+    })
+
+    $('#song4').on('click', function() {
         load_song('shinee--replay')
     })
 
@@ -254,4 +258,8 @@ $(document).ready(function () {
     $('#instrument-button').on('click', function () {
         $instruments_selector_container.slideToggle()
     })
+
+    $('#brightness-button').on('click', function () {
+        $('body').toggleClass('dark-mode')
+      })
 })

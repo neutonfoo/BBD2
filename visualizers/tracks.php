@@ -4,7 +4,7 @@
     foreach ($tracks as $track_index => $track) {
         ?>
         <div id="track_<?php echo $track_index; ?>" class="track">
-        <strong>T<?php echo $track_index; ?></strong>
+            <strong>Track <?php echo $track_index; ?></strong>
             <?php
             foreach ($notes as $note) {
                 ?>
