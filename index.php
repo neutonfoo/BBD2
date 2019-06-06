@@ -30,7 +30,7 @@
         <script src="js/StartAudioContext.js"></script>
         <script src="js/Tone.js"></script>
         <!-- Midi Converter -->
-        <script type="text/javascript" src="https://unpkg.com/@tonejs/midi"></script>
+        <script type="text/javascript" src="js/MidiConvert.js"></script>
         <script type="text/javascript" src="js/converter.js"></script>
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/5dc4a3cb6b.js"></script>
@@ -86,6 +86,8 @@
             <span id="song-selector-container">
                 <select>
                     <option value="the-beatles--in-my-life">Beatles - In My Life</option>
+                    <option value="blackpink--ddu-du-ddu-du">BLACKPINK - DDU-DU-DDU-DU</option>
+                    <option value="bts--spring-day">BTS - Spring Day</option>
                     <option value="coldplay--the-scientist">Coldplay - The Scientist</option>
                     <option value="fleetwood-mac--landslide">Fleetwood Mac - Landslide</option>
                     <option value="sekai-no-owari--sazanka" selected>SEKAI NO OWARI - Sazanka</option>

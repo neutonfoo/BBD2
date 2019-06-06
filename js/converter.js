@@ -46,7 +46,7 @@ $(document).ready(function () {
         //read the file
         const reader = new FileReader()
         reader.onload = function (e) {
-            const midiJson = new Midi(e.target.result)
+            const midiJson = MidiConvert.parse(e.target.result)
             parse_midi_json(midiJson)
         }
         reader.readAsArrayBuffer(file)
@@ -56,6 +56,39 @@ $(document).ready(function () {
         console.log(midiJson)
 
         let bbd_song = {}
+
+        // Add headers (meta)
+        bbd_song.header = {
+            'title': 'Test Song',
+            'artist': 'Test Artist',
+            'source': 'https://musescore.org',
+            'bpm': midiJson.header.bpm,
+            'duration': midiJson.duration
+        }
+
+        // Add tracks
+        bbd_song.tracks = []
+        $.each(midiJson.tracks, function (track_index, track) {
+            let instrument_number = track.instrumentNumber;
+
+            if(track.isPercussion) {
+                instrument_number = 1000
+            }
+
+            const track_data = {
+                'instrument_number': instrument_number,
+                'notes': track.notes
+            }
+
+            bbd_song.tracks.push(track_data)
+        })
+
+
+
+
+        // Code below for latest version of MidiConvert (which is formatted differently)
+        // However, bugged for percussion instruments
+        /*
         // Add headers (meta)
         bbd_song.header = {
             'title': 'Test Song',
@@ -68,9 +101,7 @@ $(document).ready(function () {
         // Add tracks
         bbd_song.tracks = []
         $.each(midiJson.tracks, function (track_index, track) {
-
-            // console.log(track_index)
-
+            console.log(track.instrumentFamily)
             const track_data = {
                 'instrument_number': track.instrument.number,
                 'notes': track.notes
@@ -78,6 +109,7 @@ $(document).ready(function () {
 
             bbd_song.tracks.push(track_data)
         })
+        */
 
         $midiConvertedJson.val(JSON.stringify(bbd_song))
     }

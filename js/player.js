@@ -260,10 +260,6 @@ $(document).ready(function () {
     function initialize_song_progress_slider() {
         setInterval(function () {
             const song_progress = Tone.Transport.seconds / bbd_song.header.duration;
-
-            console.log(Tone.Transport.seconds)
-            console.log(bbd_song.header.duration)
-            console.log(song_progress)
     
             if (song_progress >= 1) {
                 Tone.Transport.seconds = 0;

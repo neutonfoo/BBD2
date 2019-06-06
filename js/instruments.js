@@ -17,7 +17,14 @@ const instruments_list = {
                 'name': 'Electric Bass',
                 'slug': 'bass-electric',
                 'samples': [
-                        'A#2', 'A#3', 'A#4', 'A#5', 'C#2', 'C#3', 'C#4', 'C#5', 'E2', 'E3', 'E4', 'E5', 'G2', 'G3', 'G4', 'G5'
+                        'C2', 'C3', 'C4', 'C5', 'C6'
+                ]
+        },
+        '57': {
+                'name': 'Trumpet',
+                'slug': 'trumpet',
+                'samples': [
+                        'C2', 'C3', 'C4', 'C5', 'C6'
                 ]
         },
         // These are custom added instruments
@@ -27,7 +34,15 @@ const instruments_list = {
                 'samples': [
                         'C2', 'C3', 'C4', 'C5', 'C6'
                 ]
-        }
+        },
+        '1000': {
+                'name': 'SoCal Drums',
+                'slug': 'socal-drums',
+                'samples': [
+                        'A1', 'A#1', 'B1', 'C2', 'C#2', 'D2', 'D#2', 'E2', 'F2', 'F#2', 'G2', 'G#2', 'A2', 'A#2', 'B2', 'C3', 'C#3', 'D3', 'D#3', 'E3', 'F3', 'F#3', 'G3', 'G#3', 'A3', 'A#3', 'B3'
+                ]
+        },
+
         // 'Piano': 'piano',
         // 'Electric Bass': 'bass'
 }
