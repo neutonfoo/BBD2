@@ -70,6 +70,7 @@
             <a href="#" id="play-button"><i class="fas fa-play fa-2x"></i></a>
             <a href="#" id="instrument-button"><i class="fas fa-guitar fa-2x"></i></a>
             <a href="#" id="brightness-button"><i class="fas fa-adjust fa-2x"></i></a>
+            <a href="#"><i class="fas fa-code fa-2x"></i></i></a>
             <a href="#converter-modal" rel="modal:open"><i class="fas fa-dna fa-2x"></i></a>
 
             <input id="song-progress-slider" type="range" min="0" max="1" value="0" step="0.01">
@@ -87,9 +88,11 @@
                 <select>
                     <option value="the-beatles--in-my-life">Beatles - In My Life</option>
                     <option value="blackpink--ddu-du-ddu-du">BLACKPINK - DDU-DU-DDU-DU</option>
+                    <option value="blackpink--stay">BLACKPINK - Stay</option>
                     <option value="bts--spring-day">BTS - Spring Day</option>
                     <option value="coldplay--the-scientist">Coldplay - The Scientist</option>
                     <option value="fleetwood-mac--landslide">Fleetwood Mac - Landslide</option>
+                    <option value="joe-hisaishi--one-summers-day">Joe Hisaishi - One Summer's Day</option>
                     <option value="sekai-no-owari--sazanka" selected>SEKAI NO OWARI - Sazanka</option>
                     <option value="shinee--replay">SHINee - Replay</option>
                     <option value="twice--likey">TWICE - Likey</option>
