@@ -8,13 +8,21 @@ $(document).ready(function () {
 
     const $instruments_selector_container = $('#instruments-selector-container')
 
+    const $song_select = $('#song-selector-container > select')
     const $visualizer_select = $('#visualizer-selector-container > select')
     const $midi_converted_json = $('#midi-converted-json')
     const $converter_load_song = $('#converter-load-song')
     const $player = $('#player')
+    const $song_progress_slider = $('#song-progress-slider')
 
     // Styles the visualization select box
-    $visualizer_select.selectric()
+    $visualizer_select.selectric({
+        labelBuilder: '<span id="visualizer-select-label">{text}</span>'
+    })
+
+    $song_select.selectric({
+        // labelBuilder: 'Songs'
+    })
 
     //==============================================================================
     // Player Variables
@@ -54,31 +62,9 @@ $(document).ready(function () {
 
     // initialize() is called after Tone.Buffer Onload
     function initialize() {
-        load_song('the-beatles--in-my-life')
-    }
-
-    //==============================================================================
-    // Debugging / Testing Functions
-    //==============================================================================
-    $('#song0').on('click', function() {
-        load_song('the-beatles--in-my-life')
-    })
-
-    $('#song1').on('click', function() {
-        load_song('coldplay--the-scientist')
-    })
-
-    $('#song2').on('click', function() {
         load_song('sekai-no-owari--sazanka')
-    })
-
-    $('#song3').on('click', function() {
-        load_song('twice--likey')
-    })
-
-    $('#song4').on('click', function() {
-        load_song('shinee--replay')
-    })
+        initialize_song_progress_slider()
+    }
 
     //==============================================================================
     // load_song()
@@ -114,10 +100,6 @@ $(document).ready(function () {
         // Reset Player
         reset_player()
 
-        // Set Song Details
-        $song_artist.html(bbd_song.header.artist)
-        $song_title.html(bbd_song.header.title)
-
         if (is_url(bbd_song.header.source)) {
             $song_source.html(`(<a href="${ bbd_song.header.source }" target="_blank">${ bbd_song.header.source }</a>)`)
         } else {
@@ -138,9 +120,15 @@ $(document).ready(function () {
             assign_notes(track_index, track.instrument_number)
         })
 
+        // Set Song Details
+        $song_artist.html(bbd_song.header.artist)
+        $song_title.html(bbd_song.header.title)
+
+        $('title').html(`BBD2 ♬ ${ bbd_song.header.artist } - ${ bbd_song.header.title }`)
+
         // Style all rendered instrument select boxes (have to re-select newly created elements)
         const $instrument_select = $('.instrument-selector-container > select')
-        $instrument_select.selectric()
+        $instrument_select.selectric('refresh')
     }
 
     //------------------------------------------------------------------------------
@@ -235,6 +223,10 @@ $(document).ready(function () {
         render_visualizer()
     })
 
+
+    $song_select.on('change', function () {
+        load_song($(this).val())
+    })
     //------------------------------------------------------------------------------
     // Converter Load Song
     //------------------------------------------------------------------------------
@@ -261,5 +253,25 @@ $(document).ready(function () {
 
     $('#brightness-button').on('click', function () {
         $('body').toggleClass('dark-mode')
-      })
+    })
+
+    // # Slider
+    // # Updater
+    function initialize_song_progress_slider() {
+        setInterval(function () {
+            const song_progress = Tone.Transport.seconds / bbd_song.header.duration;
+
+            console.log(Tone.Transport.seconds)
+            console.log(bbd_song.header.duration)
+            console.log(song_progress)
+    
+            if (song_progress >= 1) {
+                Tone.Transport.seconds = 0;
+            }
+    
+            $song_progress_slider.val(song_progress)
+    
+        }, 1000);
+    
+    }
 })

@@ -59,9 +59,10 @@ $(document).ready(function () {
         // Add headers (meta)
         bbd_song.header = {
             'title': 'Test Song',
-            'artist': 'asdfasdf',
-            'source': 'https://asdasdasdaasd',
-            'bpm': midiJson.header.tempos[0].bpm
+            'artist': 'Test Artist',
+            'source': 'https://musescore.org',
+            'bpm': midiJson.header.tempos[0].bpm,
+            'duration': midiJson.duration
         }
 
         // Add tracks

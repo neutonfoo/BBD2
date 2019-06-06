@@ -3,6 +3,20 @@
     <head>
         <title>BBD Player 2</title>
         <meta charset="UTF-8">
+        <!-- Favicon -->
+        <link rel="icon" href="/favicon.ico">
+        <!-- Google Analytics -->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132697667-5"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'UA-132697667-5');
+        </script>
         <!-- jQuery -->
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/jquery.color-2.1.2.min.js"></script>
@@ -44,7 +58,6 @@
                     <span id="song-title"></span>
                     <span id="song-source"></span>
                 </span>
-                <!-- <button id="initialize-button">click</button> -->
             </div>
         </header>
         <main>
@@ -58,19 +71,26 @@
             <a href="#" id="instrument-button"><i class="fas fa-guitar fa-2x"></i></a>
             <a href="#" id="brightness-button"><i class="fas fa-adjust fa-2x"></i></a>
             <a href="#converter-modal" rel="modal:open"><i class="fas fa-dna fa-2x"></i></a>
-            <a href="#songs-modal" rel="modal:open"><i class="fas fa-music fa-2x"></i></a>
-            <input id="progress-slider" type="range" min="0" max="100" value="0" step="1">
-            <input id="song0" type="button" value="Beatles - In My Life">
-            <input id="song1" type="button" value="Coldplay - The Scientist">
-            <input id="song2" type="button" value="SEKAI NO OWARI - Sazanka">
-            <input id="song3" type="button" value="TWICE - Likey">
-            <input id="song4" type="button" value="SHINee - Replay">
+
+            <input id="song-progress-slider" type="range" min="0" max="1" value="0" step="0.01">
+
             <span id="visualizer-selector-container">
                 <select>
                     <option value="original" selected>Original</option>
-                    <option value="tracks">Tracks</option>
+                    <option value="tracks">Tracks List</option>
                     <option value="lights">Lights</option>
                     <option value="bongo-cat">Bongo Cat</option>
+                </select>
+            </span>
+
+            <span id="song-selector-container">
+                <select>
+                    <option value="the-beatles--in-my-life">Beatles - In My Life</option>
+                    <option value="coldplay--the-scientist">Coldplay - The Scientist</option>
+                    <option value="fleetwood-mac--landslide">Fleetwood Mac - Landslide</option>
+                    <option value="sekai-no-owari--sazanka" selected>SEKAI NO OWARI - Sazanka</option>
+                    <option value="shinee--replay">SHINee - Replay</option>
+                    <option value="twice--likey">TWICE - Likey</option>
                 </select>
             </span>
         </footer>
@@ -90,20 +110,6 @@
             </div>
         </div>
 
-                <!-- Modals -->
-                <div id="converter-modal" class="modal">
-            <div class="modal-heading modal-section">Converter</div>
-            <div id="midi-dropzone" class="modal-section">
-                <div id="midi-dropzone-text">Drop a midi file here.</div>
-            </div>
-            <div class="modal-section">
-                JSON
-                <textarea id="midi-converted-json" cols="30" rows="10"></textarea>
-            </div>
-            <div class="modal-section">
-                <input type="button" id="converter-load-song" value="Load Song">
-            </div>
-        </div>
         <!-- Custom Player JS -->
         <script type="text/javascript" src="js/player.js"></script>
     </body>
