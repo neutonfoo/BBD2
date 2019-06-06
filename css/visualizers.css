@@ -1,15 +1,63 @@
-#visualizer_original .note {
-	margin:1px;
+/* Default */
+#visualizer-default {
+	text-align: center;
+}
+
+#visualizer-default .note {
+	margin: 1px;
 
 	display: inline-block;
 	font-size: 14pt;
 	opacity: 0;
 
 	border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+
+	padding: 2px;
+}
+
+/* Original */
+#visualizer-original {
+	text-align: center;
+}
+
+#visualizer-original .note {
+	margin: 1px;
+
+	display: inline-block;
+	font-size: 14pt;
+	opacity: 0;
+
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
 
 	padding: 2px;
 
-text-align: center;
+	text-align: center;
+}
+
+/* Lights */
+#visualizer-lights {
+	margin:10px;
+
+	text-align: center;
+}
+
+#visualizer-lights .track {
+	padding: 10px;
+}
+
+#visualizer-lights .note {
+	border-radius: 20px;
+	height: 15px;
+	width: 15px;
+	border: 2px solid hsla(0, 80%, 50%, 0);
+	display: inline-block;
+}
+
+/* Bongo Cat */
+#visualizer-bongo-cat img.track {
+	width: 200px;
 }

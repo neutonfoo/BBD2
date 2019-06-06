@@ -54,12 +54,16 @@ $(document).ready(function () {
 
     // initialize() is called after Tone.Buffer Onload
     function initialize() {
-        load_song('sekai-no-owari--sazanka')
+        load_song('the-beatles--in-my-life')
     }
 
     //==============================================================================
     // Debugging / Testing Functions
     //==============================================================================
+    $('#song0').on('click', function() {
+        load_song('the-beatles--in-my-life')
+    })
+
     $('#song1').on('click', function() {
         load_song('sekai-no-owari--sazanka')
     })
