@@ -29,6 +29,7 @@ $(document).ready(function () {
 	//==============================================================================
 
 	// bbd_song is an object that contains information about the current song.
+	let song_state = false
 	let bbd_song = null
 
 	// parts stores each track. Needed for instrument changing.
@@ -95,10 +96,11 @@ $(document).ready(function () {
 	// The instrument select boxes are also re-rendered.
 
 	function song_change() {
-		parts = []
-
 		// Reset Player
 		reset_player()
+
+		parts = []
+
 
 		if (is_url(bbd_song.header.source)) {
 			$song_source.html(`(<a href="${ bbd_song.header.source }" target="_blank">${ bbd_song.header.source }</a>)`)
@@ -241,9 +243,27 @@ $(document).ready(function () {
 	//------------------------------------------------------------------------------
 
 	$('#play-button').on('click', function () {
-		Tone.Transport.start('+1', 0)
+		if (song_state) {
+			Tone.Transport.pause();
+			song_state = false;
+		} else {
+			Tone.Transport.start();
+			song_state = true;
+		}
+
+		// Tone.Transport.start('+1', 0)
 	})
 
+	$('#replay-button').on('click', function () {
+		Tone.Transport.seconds = 0;
+	})
+
+		// # Srubber
+		$song_progress_slider.on('change', function() {	
+			const newProgress = bbd_song.header.duration * $(this).val();
+			Tone.Transport.seconds = newProgress;
+		});
+	
 	//------------------------------------------------------------------------------
 	// Instrument Selector Toggle
 	//------------------------------------------------------------------------------
@@ -274,16 +294,19 @@ $(document).ready(function () {
 	// reset_player()
 	// -- Resets Player and Tone.JS
 	function reset_player() {
+		song_state = false;
 
-		for(part_index in parts) {
+		Tone.Transport.stop();
+		Tone.Transport.cancel(0);
+
+		Tone.Draw.cancel(0);
+		Tone.Transport.seconds = 0;
+
+		for (part_index in parts) {
+			parts[part_index].stop()
 			parts[part_index].removeAll()
+			parts[part_index].dispose()
 		}
 
-		Tone.Transport.pause();
-		Tone.Draw.cancel(0);
-		Tone.Transport.cancel(0);
-		Tone.Transport.seconds = 0;
 	}
-
-
 })

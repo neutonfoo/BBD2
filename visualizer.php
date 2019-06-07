@@ -8,28 +8,28 @@ $notes = ['A0', 'A#0', 'B0', 'C1', 'C#1', 'D1', 'D#1', 'E1', 'F1', 'F#1', 'G1', 
 
 function clean_note($note)
 {
-    return str_replace('#', 's', $note);
+	return str_replace('#', 's', $note);
 }
 
 function scaled_notes($factor)
 {
-    global $notes;
+	global $notes;
 
-    $scaled_notes = [];
+	$scaled_notes = [];
 
-    for ($note_index = 0; $note_index < count($notes); $note_index += $factor) {
-        $scaled_notes[] = $notes[$note_index];
-    }
+	for ($note_index = 0; $note_index < count($notes); $note_index += $factor) {
+		$scaled_notes[] = $notes[$note_index];
+	}
 
-    return $scaled_notes;
+	return $scaled_notes;
 }
 
 if ($visualizer == 'original') {
-    require('visualizers/original.php');
+	require('visualizers/original.php');
 } else if ($visualizer == 'tracks') {
-    require('visualizers/tracks.php');
+	require('visualizers/tracks.php');
 } else if ($visualizer == 'lights') {
-    require('visualizers/lights.php');
+	require('visualizers/lights.php');
 } else if ($visualizer == 'bongo-cat') {
-    require('visualizers/bongo-cat.php');
+	require('visualizers/bongo-cat.php');
 }
