@@ -17,7 +17,7 @@ const instruments_list = {
                 'name': 'Electric Bass',
                 'slug': 'bass-electric',
                 'samples': [
-                        'C2', 'C3', 'C4', 'C5', 'C6'
+                        'C2', 'C3', 'C4', 'C5'
                 ]
         },
         '57': {
