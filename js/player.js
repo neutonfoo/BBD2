@@ -66,7 +66,7 @@ $(document).ready(function () {
 
 	// initialize() is called after Tone.Buffer Onload
 	function initialize() {
-		load_song('sekai-no-owari--sazanka')
+		load_song(start_song)
 		initialize_song_progress_slider()
 	}
 

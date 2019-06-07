@@ -109,6 +109,18 @@
 		</span>
 	</footer>
 
+	<?php
+
+	$start_song = 'sekai-no-owari--sazanka';
+
+	if (isset($_GET['n'])) {
+		$start_song = 'sekai-no-owari--sazanka-n';
+	}
+	?>
+	<script type="text/javascript">
+		const start_song = '<?php echo $start_song; ?>';
+	</script>
+
 	<!-- Modals -->
 	<div id="converter-modal" class="modal">
 		<div class="modal-heading modal-section">Converter</div>
