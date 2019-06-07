@@ -6,6 +6,9 @@ $(document).ready(function () {
 	const $song_title = $('#song-title')
 	const $song_source = $('#song-source')
 
+	const $play_button = $('#play-button')
+	const $play_button_icon = $play_button.find('i.fas')
+
 	const $instruments_selector_container = $('#instruments-selector-container')
 
 	const $song_select = $('#song-selector-container > select')
@@ -189,13 +192,6 @@ $(document).ready(function () {
 			});
 	}
 
-	//------------------------------------------------------------------------------
-	// render_visualizer()
-	//------------------------------------------------------------------------------
-	// 
-	// song_change() is called whenever the user changes the visualizer.
-
-
 	//==============================================================================
 	// Event Listeners
 	//==============================================================================
@@ -234,7 +230,10 @@ $(document).ready(function () {
 	//------------------------------------------------------------------------------
 
 	$converter_load_song.on('click', function () {
+		toggle_song(true)
+
 		bbd_song = JSON.parse($midi_converted_json.val())
+
 		song_change()
 	})
 
@@ -242,15 +241,27 @@ $(document).ready(function () {
 	// Play Button
 	//------------------------------------------------------------------------------
 
-	$('#play-button').on('click', function () {
-		if (song_state) {
+	function toggle_song(force_pause = false) {
+
+		if (song_state || force_pause) {
+			// Pause song
 			Tone.Transport.pause();
 			song_state = false;
+
+			$play_button_icon.removeClass('fa-pause').addClass('fa-play');
+
 		} else {
+			// Start song
 			Tone.Transport.start();
 			song_state = true;
-		}
+			$play_button_icon.removeClass('fa-play').addClass('fa-pause');
 
+		}
+	}
+
+	$play_button.on('click', function () {
+
+		toggle_song()
 		// Tone.Transport.start('+1', 0)
 	})
 
@@ -258,12 +269,12 @@ $(document).ready(function () {
 		Tone.Transport.seconds = 0;
 	})
 
-		// # Srubber
-		$song_progress_slider.on('change', function() {	
-			const newProgress = bbd_song.header.duration * $(this).val();
-			Tone.Transport.seconds = newProgress;
-		});
-	
+	// # Srubber
+	$song_progress_slider.on('change', function () {
+		const newProgress = bbd_song.header.duration * $(this).val();
+		Tone.Transport.seconds = newProgress;
+	});
+
 	//------------------------------------------------------------------------------
 	// Instrument Selector Toggle
 	//------------------------------------------------------------------------------
@@ -294,7 +305,7 @@ $(document).ready(function () {
 	// reset_player()
 	// -- Resets Player and Tone.JS
 	function reset_player() {
-		song_state = false;
+		toggle_song(true)
 
 		Tone.Transport.stop();
 		Tone.Transport.cancel(0);

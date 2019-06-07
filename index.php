@@ -90,12 +90,19 @@
 				<option value="the-beatles--in-my-life">Beatles - In My Life</option>
 				<option value="blackpink--ddu-du-ddu-du">BLACKPINK - DDU-DU-DDU-DU</option>
 				<option value="blackpink--stay">BLACKPINK - Stay</option>
+				<option value="bts--blood-sweat-tears">BTS - Blood, Sweat, Tears</option>
+				<option value="bts--fake-love">BTS - Fake Love</option>
+				<option value="bts--run">BTS - Run</option>
 				<option value="bts--spring-day">BTS - Spring Day</option>
 				<option value="coldplay--the-scientist">Coldplay - The Scientist</option>
 				<option value="fleetwood-mac--landslide">Fleetwood Mac - Landslide</option>
 				<option value="joe-hisaishi--one-summers-day">Joe Hisaishi - One Summer's Day</option>
+				<option value="nct-127--limitless">NCT 127 - Limitless</option>
 				<option value="sekai-no-owari--sazanka" selected>SEKAI NO OWARI - Sazanka</option>
+				<option value="shawn-mendes--in-my-blood">Shawn Mendes - In My Blood</option>
+				<option value="shinee--hello">SHINee - Hello</option>
 				<option value="shinee--replay">SHINee - Replay</option>
+				<option value="snsd--gee">SNSD - Gee</option>
 				<option value="twice--dance-the-night-away">TWICE - Dance The Night Away</option>
 				<option value="twice--likey">TWICE - Likey</option>
 			</select>
