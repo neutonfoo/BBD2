@@ -33,7 +33,7 @@
 		function visualize(track_index, time, note) {
 			Tone.Draw.schedule(function() {
 				const $track = $('#track_' + track_index)
-				const image_down_index = Math.floor(note_list.indexOf(note.name) / 15)
+				const image_down_index = 5 - Math.floor(note_list.indexOf(note.name) / 15)
 
 				// Immediately set hands to up
 				$track.attr('src', 'visualizers/bongo-cat-u.png')
