@@ -20,11 +20,12 @@ $(document).ready(function () {
 
 	// Styles the visualization select box
 	$visualizer_select.selectric({
+		forceRenderAbove: true,
 		labelBuilder: '<span id="visualizer-select-label">{text}</span>'
 	})
 
 	$song_select.selectric({
-		// labelBuilder: 'Songs'
+		forceRenderAbove: true
 	})
 
 	//==============================================================================
@@ -68,6 +69,30 @@ $(document).ready(function () {
 	function initialize() {
 		load_song(start_song)
 		initialize_song_progress_slider()
+
+		$play_button.on('click', function () {
+
+			toggle_song()
+			// Tone.Transport.start('+1', 0)
+		})
+
+		$('#replay-button').on('click', function () {
+			Tone.Transport.seconds = 0;
+		})
+
+		// # Srubber
+		$song_progress_slider.on('change', function () {
+			const newProgress = bbd_song.header.duration * $(this).val();
+			Tone.Transport.seconds = newProgress;
+		});
+
+		$(document).on("keydown", function (e) {
+			if (e.keyCode == 32) {
+				toggle_song()
+				return false;
+			}
+		});
+
 	}
 
 	//==============================================================================
@@ -104,7 +129,6 @@ $(document).ready(function () {
 
 		parts = []
 
-
 		if (is_url(bbd_song.header.source)) {
 			$song_source.html(`(<a href="${ bbd_song.header.source }" target="_blank">${ bbd_song.header.source }</a>)`)
 		} else {
@@ -119,10 +143,13 @@ $(document).ready(function () {
 
 		// Loop through each track
 		$.each(bbd_song.tracks, function (track_index, track) {
-			// Append a new instrument select box for each instrument
-			$instruments_selector_container.append(build_instrument_select(track_index, track.instrument_number))
 
-			assign_notes(track_index, track.instrument_number)
+			const assigned_instrument_key = get_assigned_instrument_key(track.instrument_number)
+
+			// Append a new instrument select box for each instrument
+			$instruments_selector_container.append(build_instrument_select(track_index, assigned_instrument_key))
+
+			assign_notes(track_index, assigned_instrument_key)
 		})
 
 		// Set Song Details
@@ -218,11 +245,13 @@ $(document).ready(function () {
 	//------------------------------------------------------------------------------
 
 	$visualizer_select.on('change', function () {
+		// $visualizer_select.selectric('refresh')
 		render_visualizer()
 	})
 
 
 	$song_select.on('change', function () {
+		// $song_select.selectric('refresh')
 		load_song($(this).val())
 	})
 	//------------------------------------------------------------------------------
@@ -258,22 +287,6 @@ $(document).ready(function () {
 
 		}
 	}
-
-	$play_button.on('click', function () {
-
-		toggle_song()
-		// Tone.Transport.start('+1', 0)
-	})
-
-	$('#replay-button').on('click', function () {
-		Tone.Transport.seconds = 0;
-	})
-
-	// # Srubber
-	$song_progress_slider.on('change', function () {
-		const newProgress = bbd_song.header.duration * $(this).val();
-		Tone.Transport.seconds = newProgress;
-	});
 
 	//------------------------------------------------------------------------------
 	// Instrument Selector Toggle

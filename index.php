@@ -72,7 +72,7 @@
 		<a href="#" id="instrument-button"><i class="fas fa-guitar fa-2x"></i></a>
 		<a href="#" id="brightness-button"><i class="fas fa-adjust fa-2x"></i></a>
 		<a href="#converter-modal" rel="modal:open"><i class="fas fa-dna fa-2x"></i></a>
-		<a href="https://github.com/neutonfoo/BBD2"><i class="fas fa-code fa-2x"></i></i></a>
+		<a href="https://github.com/neutonfoo/BBD2" target="_blank"><i class="fas fa-code fa-2x"></i></i></a>
 
 		<input id="song-progress-slider" type="range" min="0" max="1" value="0" step="0.01">
 
@@ -87,7 +87,10 @@
 
 		<span id="song-selector-container">
 			<select>
+				<option value="alan-walker--faded">Alan Walker - Faded</option>
 				<option value="the-beatles--in-my-life">Beatles - In My Life</option>
+				<option value="beethoven--moonlight1">Beethoven - Sonate No. 14, "Moonlight" 1st Movement</option>
+				<option value="beethoven--moonlight3">Beethoven - Sonate No. 14, "Moonlight" 3rd Movement</option>
 				<option value="blackpink--ddu-du-ddu-du">BLACKPINK - DDU-DU-DDU-DU</option>
 				<option value="blackpink--stay">BLACKPINK - Stay</option>
 				<option value="bts--blood-sweat-tears">BTS - Blood, Sweat, Tears</option>
@@ -96,8 +99,11 @@
 				<option value="bts--spring-day">BTS - Spring Day</option>
 				<option value="coldplay--the-scientist">Coldplay - The Scientist</option>
 				<option value="fleetwood-mac--landslide">Fleetwood Mac - Landslide</option>
+				<option value="hans-zimmer--pirates-of-the-carribean-medley">Hans Zimmer - Pirates of The Caribbean Medley</option>
 				<option value="joe-hisaishi--one-summers-day">Joe Hisaishi - One Summer's Day</option>
+				<option value="ludovico-einoudi--nuvole-bianche">Ludovico Einaudi - Nuvole Bianche</option>
 				<option value="nct-127--limitless">NCT 127 - Limitless</option>
+				<option value="nct-u--without-you">NCT U - WITHOUT YOU</option>
 				<option value="sekai-no-owari--sazanka" selected>SEKAI NO OWARI - Sazanka</option>
 				<option value="shawn-mendes--in-my-blood">Shawn Mendes - In My Blood</option>
 				<option value="shinee--hello">SHINee - Hello</option>
@@ -105,6 +111,7 @@
 				<option value="snsd--gee">SNSD - Gee</option>
 				<option value="twice--dance-the-night-away">TWICE - Dance The Night Away</option>
 				<option value="twice--likey">TWICE - Likey</option>
+				<option value="yiruma--river-flows-in-you">Yiruma - River Flows In You</option>
 			</select>
 		</span>
 	</footer>
