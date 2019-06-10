@@ -30,7 +30,7 @@
 		// When a note is played, a BC will wait 0.1s, then put their hands down to simulate "playing" the note.
 		// After the entire duration of the note, the BC will raise their hand back up.
 
-		function visualize(track_index, time, note) {
+		function visualize(track_index, instrument_key, time, note) {
 			Tone.Draw.schedule(function() {
 				const $track = $('#track_' + track_index)
 				const image_down_index = Math.floor(note_list.indexOf(note.name) / 13)

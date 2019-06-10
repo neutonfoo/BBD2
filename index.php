@@ -72,6 +72,7 @@
 		<a href="#" id="instrument-button"><i class="fas fa-guitar fa-2x"></i></a>
 		<a href="#" id="brightness-button"><i class="fas fa-adjust fa-2x"></i></a>
 		<a href="#converter-modal" rel="modal:open"><i class="fas fa-dna fa-2x"></i></a>
+		<!-- <a href="#info-modal" rel="modal:open"><i class=" fas fa-info fa-2x"></i></a> -->
 		<a href="https://github.com/neutonfoo/BBD2" target="_blank"><i class="fas fa-code fa-2x"></i></i></a>
 
 		<input id="song-progress-slider" type="range" min="0" max="1" value="0" step="0.01">
@@ -81,6 +82,7 @@
 				<option value="original" selected>Original</option>
 				<option value="tracks">Tracks List</option>
 				<option value="lights">Lights</option>
+				<option value="grid">Grid</option>
 				<option value="bongo-cat">Bongo Cat</option>
 			</select>
 		</span>
@@ -142,6 +144,14 @@
 			<input type="button" id="converter-load-song" value="Load Song">
 		</div>
 	</div>
+
+	<div id="info-modal" class="modal">
+		<div class="modal-heading modal-section">About</div>
+		<div class="modal-section">
+			<p>Hello</p>
+		</div>
+	</div>
+
 
 	<!-- Custom Player JS -->
 	<script type="text/javascript" src="js/player.js"></script>

@@ -67,6 +67,9 @@ $(document).ready(function () {
 
 	// initialize() is called after Tone.Buffer Onload
 	function initialize() {
+
+		
+
 		load_song(start_song)
 		initialize_song_progress_slider()
 
@@ -178,7 +181,7 @@ $(document).ready(function () {
 
 			// visualize() is a JS function that exists in all visualizers.
 			// Is automatically scheduled to be called when the note is played, so it is possible to dynamically change the visualizer.
-			visualize(track_index, time, note)
+			visualize(track_index, instrument_key, time, note)
 		}, bbd_song.tracks[track_index].notes).start(0)
 
 		if (parts[track_index]) {

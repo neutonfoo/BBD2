@@ -61,3 +61,14 @@
 #visualizer-bongo-cat img.track {
 	width: 200px;
 }
+
+/* Grid */
+#visualizer-grid .cell {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+
+	/* background-color:#0fF; */
+
+	border: 1px solid #AAA;
+}

@@ -18,7 +18,7 @@
 }
 ?>
     <script type="text/javascript">
-        function visualize(track_index, time, note) {
+		function visualize(track_index, instrument_key, time, note) {
             Tone.Draw.schedule(function() {
                 const $note = $('#track_' + track_index + ' #note_' + (Math.floor(note_list.indexOf(note.name) / <?php echo $scaling_factor; ?>)))
 
