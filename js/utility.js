@@ -18,3 +18,4 @@ function is_url(str) {
     '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
   return !!pattern.test(str);
 }
+

@@ -68,7 +68,8 @@ $(document).ready(function () {
 	// initialize() is called after Tone.Buffer Onload
 	function initialize() {
 
-		
+		$('main').css('margin-top', $('header').outerHeight())
+		$('main').css('margin-bottom', $('footer').outerHeight())
 
 		load_song(start_song)
 		initialize_song_progress_slider()
@@ -237,7 +238,9 @@ $(document).ready(function () {
 		console.log('track_index : ' + track_index)
 		console.log('new_instrument_key : ' + new_instrument_key)
 
+		parts[track_index].cancel(0);
 		parts[track_index].removeAll();
+		parts[track_index].dispose();
 
 		assign_notes(track_index, new_instrument_key)
 
@@ -330,10 +333,12 @@ $(document).ready(function () {
 		Tone.Transport.seconds = 0;
 
 		for (part_index in parts) {
-			parts[part_index].stop()
-			parts[part_index].removeAll()
-			parts[part_index].dispose()
+			parts[track_index].cancel(0);
+			parts[track_index].removeAll();
+			parts[track_index].dispose();
 		}
 
 	}
+
+	
 })
