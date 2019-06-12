@@ -13,6 +13,7 @@ $(document).ready(function () {
 
 	const $song_select = $('#song-selector-container > select')
 	const $visualizer_select = $('#visualizer-selector-container > select')
+	
 	const $midi_converted_json = $('#midi-converted-json')
 	const $converter_load_song = $('#converter-load-song')
 	const $player = $('#player')
@@ -238,9 +239,7 @@ $(document).ready(function () {
 		console.log('track_index : ' + track_index)
 		console.log('new_instrument_key : ' + new_instrument_key)
 
-		parts[track_index].cancel(0);
 		parts[track_index].removeAll();
-		parts[track_index].dispose();
 
 		assign_notes(track_index, new_instrument_key)
 
@@ -333,12 +332,10 @@ $(document).ready(function () {
 		Tone.Transport.seconds = 0;
 
 		for (part_index in parts) {
-			parts[track_index].cancel(0);
-			parts[track_index].removeAll();
-			parts[track_index].dispose();
+			parts[part_index].cancel(0)
+			parts[part_index].removeAll()
+			parts[part_index].dispose()
 		}
 
 	}
-
-	
 })

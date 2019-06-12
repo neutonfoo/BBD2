@@ -30,6 +30,8 @@ if ($visualizer == 'original') {
 	require('visualizers/tracks.php');
 } else if ($visualizer == 'grid') {
 	require('visualizers/grid.php');
+} else if ($visualizer == 'grid-small') {
+	require('visualizers/grid-small.php');
 } else if ($visualizer == 'lights') {
 	require('visualizers/lights.php');
 } else if ($visualizer == 'bongo-cat') {

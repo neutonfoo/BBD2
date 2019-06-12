@@ -1,8 +1,7 @@
 <div id="visualizer-grid" class="visualizer">
 	<?php
 
-	$number_of_cells_per_track = 180;
-	$cell_count = $number_of_cells_per_track * count($tracks);
+	$cell_count = 264;
 
 	for ($i = 0; $i < $cell_count; $i++) {
 		?>

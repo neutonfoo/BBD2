@@ -83,6 +83,7 @@
 				<option value="tracks">Tracks List</option>
 				<option value="lights">Lights</option>
 				<option value="grid">Grid</option>
+				<option value="grid-small">Grid (Small)</option>
 				<option value="bongo-cat">Bongo Cat</option>
 			</select>
 		</span>
