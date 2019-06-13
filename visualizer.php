@@ -28,6 +28,8 @@ if ($visualizer == 'original') {
 	require('visualizers/original.php');
 } else if ($visualizer == 'tracks') {
 	require('visualizers/tracks.php');
+} else if ($visualizer == 'graffiti') {
+	require('visualizers/graffiti.php');
 } else if ($visualizer == 'grid') {
 	require('visualizers/grid.php');
 } else if ($visualizer == 'grid-small') {
