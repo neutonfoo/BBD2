@@ -96,6 +96,8 @@
 				<option value="beethoven--moonlight1">Beethoven - Sonate No. 14, "Moonlight" 1st Movement</option>
 				<option value="beethoven--moonlight3">Beethoven - Sonate No. 14, "Moonlight" 3rd Movement</option>
 				<option value="blackpink--ddu-du-ddu-du">BLACKPINK - DDU-DU-DDU-DU</option>
+				<option value="blackpink--dont-know-what-to-do">BLACKPINK - Don't Know What To Do</option>
+				<option value="blackpink--how-you-like-that">BLACKPINK - How You Like That</option>
 				<option value="blackpink--stay">BLACKPINK - Stay</option>
 				<option value="bts--blood-sweat-tears">BTS - Blood, Sweat, Tears</option>
 				<option value="bts--fake-love">BTS - Fake Love</option>
@@ -105,27 +107,29 @@
 				<option value="fleetwood-mac--landslide">Fleetwood Mac - Landslide</option>
 				<option value="hans-zimmer--pirates-of-the-carribean-medley">Hans Zimmer - Pirates of The Caribbean Medley</option>
 				<option value="joe-hisaishi--one-summers-day">Joe Hisaishi - One Summer's Day</option>
+				<option value="joe-hisaishi-merry-go-round-of-life">Joe Hisaishi - Merry-Go-Round of Life</option>
 				<option value="ludovico-einoudi--nuvole-bianche">Ludovico Einaudi - Nuvole Bianche</option>
 				<option value="nct-127--limitless">NCT 127 - Limitless</option>
 				<option value="nct-u--without-you">NCT U - WITHOUT YOU</option>
-				<option value="sekai-no-owari--sazanka" selected>SEKAI NO OWARI - Sazanka</option>
+				<option value="sekai-no-owari--sazanka">SEKAI NO OWARI - Sazanka</option>
 				<option value="shawn-mendes--in-my-blood">Shawn Mendes - In My Blood</option>
 				<option value="shinee--hello">SHINee - Hello</option>
 				<option value="shinee--replay">SHINee - Replay</option>
 				<option value="snsd--gee">SNSD - Gee</option>
 				<option value="twice--dance-the-night-away">TWICE - Dance The Night Away</option>
+				<option value="twice--feel-special">TWICE - Feel Special</option>
 				<option value="twice--likey">TWICE - Likey</option>
-				<option value="yiruma--river-flows-in-you">Yiruma - River Flows In You</option>
+				<option value="yiruma--river-flows-in-you" selected>Yiruma - River Flows In You</option>
 			</select>
 		</span>
 	</footer>
 
 	<?php
 
-	$start_song = 'sekai-no-owari--sazanka';
+	$start_song = 'yiruma--river-flows-in-you';
 
 	if (isset($_GET['n'])) {
-		$start_song = 'sekai-no-owari--sazanka-n';
+		$start_song = 'yiruma--river-flows-in-you-n';
 	}
 	?>
 	<script type="text/javascript">
